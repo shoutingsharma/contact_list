@@ -1,20 +1,22 @@
 //require library
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 //connect to the database
-mongoose.connect('mongodb://127.0.0.1:27017/contact_list_db');
+mongoose.connect("mongodb://127.0.0.1:27017/contact_list_db"
+// , {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   family: 4,
+// }
+);
 
 //acquire the connection (to check if it is successfull)
 const db = mongoose.connection;
 
 //error
-db.on('error',console.error.bind(console,'error connecting to db'));
+db.on("error", console.error.bind(console, "error connecting to db"));
 
 //up and running then print the message
-db.once('open',function(){
-    console.log('successfully connected to database')
-})
-
- 
-
-
+db.once("open", function () {
+  console.log("successfully connected to database");
+});
